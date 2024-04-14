@@ -1,0 +1,7 @@
+android/**  -linguist-detectable
+build/**  -linguist-detectable
+linux/**  -linguist-detectable
+ios/**  -linguist-detectable
+macos/**  -linguist-detectable
+windows/**  -linguist-detectable
+web/**  -linguist-detectable
