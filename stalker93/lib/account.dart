@@ -23,6 +23,9 @@ class Account {
 
   Account(this._username);
 
+  String? get username => _username;
+  List<AccountState> get states => _states;
+
   void recordState(int followers, int following, int posts) {
     _states.add(AccountState.recordNew(_username, followers, following, posts));
   }
