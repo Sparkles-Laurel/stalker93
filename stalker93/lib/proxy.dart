@@ -14,8 +14,8 @@ class ProxyServer {
   ProxyServer(this.host, this.port, this.username, this.password);
   ProxyServer.parse(String proxyString) {
     var parts = proxyString.split(':');
-    this.host = parts[0];
-    this.port = int.parse(parts[1]);
+    host = parts[0];
+    port = int.parse(parts[1]);
     username = parts[2];
     password = parts[3];
   }
