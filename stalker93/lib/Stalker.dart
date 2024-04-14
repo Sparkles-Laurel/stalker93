@@ -55,7 +55,10 @@ class Stalker {
       var followers = 0, following = 0, posts = 0;
       // Parse the response body.
       // Extract the followers, following, and posts.
-      // Parse the response body
+      // find the followers
+      // good luck while parsing the ReactJS output
+      var followersMatch = RegExp(r'"edge_followed_by":{"count":(\d+)}')
+          .firstMatch(responseBody);
     }
   }
 
