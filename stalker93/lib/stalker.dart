@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
+import 'package:logger/logger.dart';
 import 'package:stalker93/account.dart';
 import 'package:stalker93/proxy.dart';
 import 'package:stalker93/scraper.dart';
@@ -11,8 +12,14 @@ class Stalker {
   final List<Account> _accounts = [];
   final List<ProxyServer> _proxies = [];
   bool _isRunning = false;
+  Duration _checkEvery;
+  Logger _logger = Logger();
 
-  Stalker();
+  Stalker({Duration checkEvery = const Duration(minutes: 10)})
+      : _checkEvery = checkEvery {
+    _isRunning = false;
+    _logger = Logger();
+  }
 
   // Adds an account to the stalker.
   void addAccount(Account account) {
@@ -91,7 +98,7 @@ class Stalker {
     Future.wait(stalkers).then((_) {
       if (_isRunning) {
         // Schedule the next loop.
-        Future.delayed(const Duration(minutes: 10), _stalkerLoop).then((_) {});
+        Future.delayed(_checkEvery, _stalkerLoop).then((_) {});
       }
     });
   }
