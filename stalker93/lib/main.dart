@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme:
             ColorScheme.fromSeed(seedColor: Colors.greenAccent).copyWith(
-          brightness: MediaQuery.of(context).platformBrightness,
+          brightness: Brightness.dark,
         ),
         primarySwatch: Colors.green,
         // use platform color scheme (light/dark mode)
@@ -41,8 +41,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-  TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
   final Stalker _stalker = Stalker();
   bool _isStalking = false;
   void _initStalker() {
@@ -50,6 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
     _isStalking = !_isStalking;
   }
 
+  // ignore: unused_element
   void _showAccountList(BuildContext context) {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return AccountListView(accounts: _stalker.accounts);
@@ -65,7 +65,8 @@ class _MyHomePageState extends State<MyHomePage> {
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(48),
           child: Text(widget.subtitle,
-              style: Theme.of(context).textTheme.titleSmall),
+              style: Theme.of(context).textTheme.titleSmall,
+              textAlign: TextAlign.start),
         ),
       ),
       body: Center(

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:stalker93/account.dart';
+import 'package:stalker93/account_history_view.dart';
 
 class AccountListView extends StatelessWidget {
   final List<Account> accounts;
@@ -16,8 +17,9 @@ class AccountListView extends StatelessWidget {
         return ListTile(
             title: Text(accounts[index].username!),
             onTap: () {
-              Navigator.pushNamed(context, '/account',
-                  arguments: accounts[index]);
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return AccountHistoryView(account: accounts[index]);
+              }));
             });
       },
     );

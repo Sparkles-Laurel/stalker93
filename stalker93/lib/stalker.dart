@@ -12,7 +12,8 @@ class Stalker {
   final List<Account> _accounts = [];
   final List<ProxyServer> _proxies = [];
   bool _isRunning = false;
-  Duration _checkEvery;
+  final Duration _checkEvery;
+  // ignore: unused_field
   Logger _logger = Logger();
 
   Stalker({Duration checkEvery = const Duration(minutes: 10)})
