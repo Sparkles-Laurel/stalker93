@@ -32,6 +32,7 @@ class Stalker {
   }
 
   bool get isRunning => _isRunning;
+  List<Account> get accounts => _accounts;
 
   // Spawns a thread that stalks a single account.
   Future<void> _stalkAccount(Account account) async {
